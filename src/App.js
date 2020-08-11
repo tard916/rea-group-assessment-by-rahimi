@@ -1,25 +1,23 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
-
+import React, {Fragment} from 'react';
+import './App.scss';
+import Header from "./components/header/Header";
+import BreadCrumbs from "./components/breadCrumbs/BreadCrumbs";
+import SearchBox from "./components/searchBox/SearchBox";
+import SearchResult from "./components/searchResult/SearchResult";
+import Mortgage from "./components/mortgage/Mortgage";
+import Footer from "./components/footer/Footer";
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Fragment>
+      <Header/>
+      <div className="main">
+        <BreadCrumbs/>
+        <SearchBox/>
+        <SearchResult/>
+        <Mortgage/>
+      </div>
+      <Footer/>
+    </Fragment>
   );
 }
 

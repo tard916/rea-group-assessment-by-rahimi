@@ -1,0 +1,82 @@
+.header {
+    background: #2f8dcd;
+    height: 85px;
+    padding: 1.5rem 1.5rem 0;
+    position: relative;
+
+    .header-logo {
+        width: 220px;
+        height: auto;
+
+        svg {
+            fill: #fff;
+        }
+    }
+    .header-actions {
+        color: #fff;
+        display: flex;
+        flex-direction: row;
+        position: absolute;
+        bottom: 0;
+        width: 100%;
+        .navbar {
+            .navbar-nav {
+                display: flex;
+                flex-direction: row;
+                list-style: none;
+                padding: 0;
+                .nav-item {
+                    font-size: 0.9rem;
+                    & + .nav-item {
+                        margin-left: 1rem;
+                    }
+                }
+            }
+        }
+        .header-right-wrapper {
+            position: absolute;
+            right: 0;
+            bottom: 0;
+            margin-right: 4rem;
+            width: 300px;
+            height: 60px;
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+            .language-switcher {
+                position: relative;
+                display: flex;
+                flex-direction: row;
+                align-items: center;
+                height: 100%;
+                i {
+                    width: 20px;
+                }
+                .language-selector {
+                    margin-left: 0.5rem;
+                    font-size: 0.8rem;
+                }
+            }
+            .separator {
+                width: 0;
+                height: 50%;
+                border-left: 1px solid #fff;
+                margin: 0 1rem;
+            }
+            .account-wrapper {
+                display: flex;
+                flex-flow: row nowrap;
+                align-items: center;
+                i {
+                    width: 25px;
+                    & + i {
+                        margin-left: 0.8rem;
+                        svg {
+                            fill: #fff;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

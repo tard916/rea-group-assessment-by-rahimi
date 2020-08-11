@@ -1,0 +1,907 @@
+html,
+body {
+  width: 100%;
+  height: 100%;
+  overflow-x: hidden;
+  margin: 0;
+  font-family: MuseoSans, Helvetica Neue, Helvetica, Arial, PingFang HK, STHeitiTC-Light, Meiryo, Microsoft JhengHei, sans-serif;
+}
+
+.btn {
+  border: none;
+  background: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 0.5rem;
+
+  &:focus,
+  &:active {
+    outline: none;
+  }
+}
+
+.header {
+  background: #2f8dcd;
+  height: 85px;
+  padding: 1.5rem 1.5rem 0;
+  position: relative;
+
+  .header-logo {
+    width: 220px;
+    height: auto;
+
+    svg {
+      fill: #fff;
+    }
+  }
+
+  .header-actions {
+    color: #fff;
+    display: flex;
+    flex-direction: row;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+
+    .navbar {
+      .navbar-nav {
+        display: flex;
+        flex-direction: row;
+        list-style: none;
+        padding: 0;
+
+        .nav-item {
+          font-size: 0.9rem;
+
+          & + .nav-item {
+            margin-left: 1rem;
+          }
+        }
+      }
+    }
+
+    .header-right-wrapper {
+      position: absolute;
+      right: 0;
+      bottom: 0;
+      margin-right: 4rem;
+      width: 300px;
+      height: 60px;
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+
+      .language-switcher {
+        position: relative;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        height: 100%;
+
+        i {
+          width: 20px;
+        }
+
+        .language-selector {
+          margin-left: 0.5rem;
+          font-size: 0.8rem;
+        }
+      }
+
+      .separator {
+        width: 0;
+        height: 50%;
+        border-left: 1px solid #fff;
+        margin: 0 1rem;
+      }
+
+      .account-wrapper {
+        display: flex;
+        flex-flow: row nowrap;
+        align-items: center;
+
+        i {
+          width: 25px;
+
+          & + i {
+            margin-left: 0.8rem;
+
+            svg {
+              fill: #fff;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+.main {
+  background: #ececec;
+  min-height: 50%;
+  width: 100%;
+  padding-bottom: 2rem;
+
+  .breadcrumbs {
+    height: auto;
+    width: 100%;
+    background: #2f8dcd;
+    color: #c4c4c4;
+
+    ol {
+      list-style: none;
+      margin: 0;
+      padding: 0.7rem 1.5rem;
+      background: rgba($color: #000000, $alpha: 0.25);
+      font-size: 0.7rem;
+      display: flex;
+      flex-flow: row nowrap;
+
+      li + li {
+        &::before {
+          content: '/';
+          margin: 0 1rem;
+        }
+      }
+    }
+  }
+
+  .search-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+
+    .search-bar {
+      width: 100%;
+      height: 60px;
+      background: #fff;
+      border-bottom: 2px solid rgba($color: #c4c4c4, $alpha: 0.5);
+      display: flex;
+      flex-flow: row nowrap;
+
+      .search-form {
+        height: 100%;
+        width: 100%;
+        display: flex;
+        flex-flow: row nowrap;
+        align-items: center;
+
+        .form-control {
+          border: none;
+          background: #fff;
+          color: #454545;
+          padding: 0 1rem;
+          width: 100%;
+
+          &:focus {
+            outline: none;
+          }
+        }
+
+        .select-wrapper {
+          position: relative;
+          width: 200px;
+          height: 100%;
+          border-right: 1px solid rgba($color: #c4c4c4, $alpha: 0.7);
+          display: flex;
+          align-items: center;
+
+          select {
+            position: relative;
+            font-size: 1rem;
+            width: 100%;
+            height: 2rem;
+            appearance: none;
+          }
+
+          .dropdown {
+            position: absolute;
+            width: 2rem;
+            height: 2rem;
+            right: 1rem;
+
+            i {
+              width: 1rem;
+            }
+
+            &:focus,
+            &:active {
+              outline: none;
+            }
+          }
+        }
+
+        .search-input-wrapper {
+          height: 100%;
+          width: 100%;
+          display: flex;
+          padding: 0 1rem;
+          align-items: center;
+
+          i {
+            display: flex;
+            width: 25px;
+            align-items: center;
+
+            svg {
+              width: 100%;
+            }
+          }
+
+          .update-search {
+            background: #108ee9;
+            height: auto;
+            padding: 0.5rem 1rem;
+            font-size: 1.1rem;
+            color: #fff;
+            margin-right: 1rem;
+          }
+        }
+      }
+
+      .channel-switcher-buttons {
+        display: flex;
+        flex-flow: row nowrap;
+        height: 2.75rem;
+        margin-bottom: auto;
+
+        .channel-radio {
+          visibility: hidden;
+          width: 0;
+          height: 0;
+          margin: 0;
+
+          &:checked + .channel-label {
+            background: #c4c4c4;
+            border-color: #c4c4c4;
+            color: #fff;
+          }
+        }
+
+        .channel-label {
+          padding: 0.5rem;
+          min-width: 6rem;
+          text-align: center;
+          color: #454545;
+          font-weight: 600;
+          height: 100%;
+        }
+
+        .channel-radio,
+        .channel-label {
+          cursor: pointer;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+        }
+      }
+    }
+
+    .filter-wrapper {
+      width: 1140px;
+      max-width: 100%;
+      height: auto;
+      background-color: white;
+      color: #454545;
+      display: flex;
+      flex-direction: column;
+      -webkit-box-pack: justify;
+      justify-content: space-between;
+      box-shadow: rgba(0, 0, 0, 0.2) 0px 1px 2px 0px;
+      padding: 16px;
+      margin: 1rem 0;
+
+      .filter-row {
+        display: flex;
+        flex-flow: row nowrap;
+        position: relative;
+        align-items: center;
+
+        .title {
+          font-weight: 400;
+        }
+
+        .save-search {
+          position: absolute;
+          right: 1rem;
+          display: flex;
+          flex-flow: row nowrap;
+          font-size: 0.8rem;
+          border: none;
+
+          i {
+            width: 0.8rem;
+            height: 0.8rem;
+            margin-left: 0.5rem;
+          }
+        }
+
+        .filter-sort {
+          position: absolute;
+          right: 1rem;
+          display: flex;
+          flex-flow: row nowrap;
+          align-items: center;
+          font-size: 0.8rem;
+
+          .collapse-icon {
+            display: flex;
+            flex-flow: row nowrap;
+            align-items: center;
+
+            i svg {
+              width: 0.8rem;
+              height: 0.8rem;
+              margin-left: 0.5rem;
+              margin-top: 0.3rem;
+            }
+          }
+        }
+
+        .filter-toggle {
+          display: none;
+        }
+
+        .filters {
+          display: flex;
+          flex-flow: row nowrap;
+
+          .filter-collapse-item {
+            font-size: 0.9rem;
+
+            & + .filter-collapse-item {
+              margin-left: 1rem;
+            }
+
+            .collapse-trigger {
+              display: flex;
+              align-items: center;
+
+              i {
+                margin-left: 1rem;
+
+                svg {
+                  width: 0.9rem;
+                  height: 0.9rem;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .content-wrapper {
+    display: flex;
+    flex-direction: column;
+    //justify-content: center;
+    padding-left: 8.8vw;
+
+    .listing-wrapper {
+      width: 49rem;
+
+      .listing-item {
+        background: #fff;
+        width: 100%;
+        min-height: 15rem;
+        overflow: hidden;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-radius: 0.5rem;
+        border: 2px solid rgba($color: #c4c4c4, $alpha: 0.5);
+        margin-bottom: 1rem;
+        position: relative;
+
+        .media-col {
+          width: 40%;
+          height: 100%;
+          overflow: hidden;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          margin: 1rem;
+
+          img {
+            -o-object-fit: cover;
+            object-fit: cover;
+            -o-object-position: center;
+            object-position: center;
+            max-width: 100%;
+            max-height: 100%;
+          }
+        }
+
+        .description {
+          .description-wrapper {
+            width: 100%;
+            height: auto;
+            padding: 1rem 0;
+            display: flex;
+            align-items: flex-start;
+            flex-flow: column nowrap;
+            color: #454545;
+
+            .desc-row {
+              display: flex;
+              flex-flow: row nowrap;
+              margin-bottom: 1rem;
+
+              .realtor {
+                font-size: 1.1rem;
+                font-weight: 400;
+              }
+
+              .date-posted {
+                font-size: 0.8rem;
+                margin-left: 2rem;
+              }
+
+              .price {
+                font-size: 1.4rem;
+                font-weight: 600;
+              }
+
+              .ppsqft {
+                font-size: 0.8rem;
+                margin-left: 1rem;
+              }
+
+              .address-col {
+                display: flex;
+                flex-flow: column nowrap;
+
+                .listing-name {
+                  font-size: 1.2rem;
+                  font-weight: 500;
+                }
+
+                .listing-address {
+                  font-size: 0.9rem;
+                  color: #929292;
+                }
+              }
+
+              .listing-features {
+                display: flex;
+                flex-flow: row wrap;
+                align-items: center;
+
+                .listing-feature {
+                  & + .listing-feature::before {
+                    content: '|';
+                    margin: 0 1rem;
+                  }
+                }
+              }
+            }
+          }
+
+          .description-bottom-wrapper {
+            width: 100%;
+            height: auto;
+            padding: 1rem 0;
+            display: flex;
+            align-items: flex-start;
+            flex-flow: column nowrap;
+            color: #454545;
+            position: relative;
+            bottom: 0;
+
+            .desc-row {
+              display: flex;
+              flex-flow: row nowrap;
+              margin-bottom: 1rem;
+              position: absolute;
+              bottom: 0;
+              align-items: center;
+              width: 100%;
+
+              .listing-specs {
+                display: flex;
+                flex-flow: row nowrap;
+
+                .listing-spec {
+                  display: flex;
+                  flex-direction: row;
+                  align-items: center;
+
+                  i {
+                    margin-right: 0.5rem;
+
+                    svg {
+                      fill: #454545;
+                    }
+                  }
+
+                  & + .listing-spec {
+                    margin-left: 1rem;
+                  }
+                }
+              }
+
+              .listing-buttons {
+                position: absolute;
+                right: 1rem;
+                display: flex;
+
+                .listing-save {
+                  display: flex;
+                  align-items: center;
+
+                  i {
+                    margin-left: 0.5rem;
+
+                    svg {
+                      width: 1rem;
+                      height: 1rem;
+                    }
+                  }
+                }
+
+                .listing-details {
+                  margin-left: 1rem;
+
+                  .btn-details {
+                    border: 2px solid #c4c4c4;
+                    padding: 0.3rem 1rem;
+                    color: #108ee9;
+
+                    i {
+                      margin-left: 0.5rem;
+
+                      svg {
+                        fill: #108ee9;
+                        width: 1rem;
+                        height: 1rem;
+                        margin-top: 0.2rem;
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+
+    .mortgage-wrapper {
+      display: flex;
+      flex-direction: column;
+      margin-bottom: 1rem;
+      width: 49rem;
+
+      .mortgage-header {
+        background: rgb(51, 63, 72);
+        color: #fff;
+        padding: 0.5rem 1rem;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        height: 55px;
+        align-items: center;
+
+        h2 {
+          margin: 0;
+          font-size: 18px;
+          font-weight: 700;
+          color: rgb(255, 255, 255);
+          padding: 16px;
+        }
+
+        i svg {
+          height: 1.5rem;
+          width: auto;
+          fill: rgb(255, 255, 255);
+        }
+      }
+
+      .mortgage-calculator {
+        background: #fff;
+        border: 1px solid #c4c4c4;
+        padding: 0.5rem 1rem;
+        display: flex;
+        flex-flow: row nowrap;
+
+        .mortgage-result {
+          width: 16rem;
+          display: flex;
+          flex-direction: column;
+          color: #454545;
+
+          .mortgage-result-monthlyPayment {
+            font-size: 1.8rem;
+            font-weight: 600;
+
+            span {
+              font-size: 0.9rem;
+              font-weight: 400;
+            }
+          }
+
+          .mortgage-result-loan {
+            display: flex;
+            flex-flow: row nowrap;
+            font-weight: 600;
+            font-size: 0.9rem;
+            margin-top: 1rem;
+
+            span {
+              margin-left: 0.5rem;
+            }
+          }
+        }
+
+        .mortgage-form-toggle {
+          display: none;
+        }
+
+        .mortgage-form {
+          display: flex;
+          flex-flow: row nowrap;
+          color: #454545;
+          width: 100%;
+          justify-content: center;
+
+          .form-control {
+            border: 1px solid #c4c4c4;
+            border-radius: 0.2rem;
+            font-size: 1rem;
+            background: #e8e8e8;
+            color: #454545;
+            padding: 0.5rem 1rem;
+            max-width: 80%;
+
+            &:focus {
+              outline: none;
+            }
+          }
+
+          .form-col {
+            display: flex;
+            flex-flow: column nowrap;
+            margin: 0 0.5rem;
+            width: 10rem;
+
+            .input-group {
+              display: flex;
+              flex-flow: column nowrap;
+              margin-bottom: 1rem;
+              max-width: 100%;
+            }
+
+            .radio-group {
+              & + .radio-group {
+                margin-left: 0.3rem;
+              }
+
+              max-width: 100%;
+            }
+
+            .mortgage-style {
+              display: flex;
+              flex-flow: row nowrap;
+
+              .mortgage-style__switchButtonGroup {
+                margin-left: 0.5rem;
+                display: flex;
+                flex-flow: row nowrap;
+
+                .mortgage-radio {
+                  visibility: hidden;
+                  width: 0;
+                  height: 0;
+                  margin: 0;
+
+                  &:checked + .mortgage-label {
+                    color: #108ee9;
+                    border: 1px solid #108ee9;
+                  }
+                }
+
+                .mortgage-label {
+                  padding: 0.5rem;
+                  width: 1rem;
+                  text-align: center;
+                  color: #e6e6e6;
+                  border: 1px solid #e6e6e6;
+                  border-radius: 0.5rem;
+                }
+
+                .mortgage-radio,
+                .mortgage-label {
+                  cursor: pointer;
+                  display: flex;
+                  align-items: center;
+                  justify-content: center;
+                }
+              }
+            }
+          }
+        }
+      }
+
+      .mortgage-collapse-item-wrap {
+        background: #fff;
+
+        .mortgage-collapse-header {
+          height: 5rem;
+          font-size: 14px;
+          font-weight: 300;
+          color: rgb(105, 118, 132);
+          text-align: right;
+          display: flex;
+          flex-flow: row nowrap;
+          justify-content: flex-end;
+          align-items: center;
+          margin-right: 1rem;
+
+          .btn {
+            display: flex;
+            flex-flow: row nowrap;
+            margin-right: 1rem;
+          }
+
+          .text {
+            color: #454545;
+          }
+
+          i {
+            margin-left: 0.5rem;
+
+            svg {
+              fill: #454545;
+              width: 1rem;
+              height: 1rem;
+              margin-top: 0.2rem;
+            }
+          }
+        }
+
+        // .mortgage-collapse-body {
+        // }
+      }
+    }
+  }
+}
+
+.footer {
+  width: 100%;
+  min-height: 25rem;
+  background: #333f48;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: center;
+
+  .container {
+    width: 1140px;
+    max-width: 100%;
+    display: flex;
+    flex-direction: column;
+
+    section {
+      font-size: 0.8rem;
+
+      ul {
+        padding: 0;
+      }
+    }
+
+    #social-local-links {
+      display: flex;
+      flex-flow: row nowrap;
+      color: #fff;
+      margin-top: 1rem;
+      justify-content: space-between;
+
+      .social-links {
+        display: flex;
+        flex-flow: row nowrap;
+        list-style: none;
+        padding: 0;
+
+        li + li {
+          margin-left: 1rem;
+        }
+      }
+
+      .local-links {
+        display: flex;
+        flex-flow: row nowrap;
+        list-style: none;
+
+        li {
+          a {
+            text-decoration: none;
+            color: #d2d6da;
+            font-size: 0.9rem;
+          }
+
+          & + li {
+            margin-left: 1rem;
+          }
+        }
+      }
+    }
+
+    #app-store-links {
+      .app-store-links {
+        padding: 0;
+        list-style: none;
+        color: #d2d6da;
+        display: flex;
+        flex-flow: row nowrap;
+
+        li {
+          height: 50px;
+
+          & + li {
+            margin-left: 1rem;
+          }
+
+          a {
+            text-decoration: none;
+
+            &.google-play {
+              width: 134px;
+              background-image: url(https://assets-cdn.iproperty.com.my/assets/googlePlayIcon-c8783e31.svg);
+              background-size: contain;
+              display: block;
+              height: 50px;
+              background-repeat: no-repeat;
+            }
+
+            &.app-store {
+              width: 126px;
+              background-image: url(https://assets-cdn.iproperty.com.my/assets/appStoreIcon-1f23f1a2.svg);
+              background-size: contain;
+              display: block;
+              height: 50px;
+              background-repeat: no-repeat;
+            }
+          }
+        }
+      }
+    }
+
+    #international-sites,
+    #partner-sites {
+      color: #d2d6da;
+
+      .sites {
+        list-style: none;
+        display: flex;
+        flex-flow: row wrap;
+
+        margin-top: 2rem;
+
+        li {
+          padding-right: 1rem;
+
+          .site-wrapper {
+            a {
+              text-decoration: none;
+              color: #d2d6da;
+            }
+          }
+
+          & + li {
+            border-left: 1px solid #d2d6da;
+            padding-left: 1rem;
+          }
+        }
+      }
+    }
+
+    #copyright {
+      color: #d2d6da;
+      margin-top: 1.5rem;
+    }
+  }
+}
+
+@import "./mobile";

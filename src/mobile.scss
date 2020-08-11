@@ -1,0 +1,320 @@
+@media screen and (max-width: 576px) {
+  .header {
+    height: 55px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0 0.5rem;
+
+    .header-actions {
+      .navbar {
+        display: none;
+      }
+
+      .header-right-wrapper {
+        margin-right: 2rem;
+
+        .language-switcher,
+        .separator {
+          display: none;
+        }
+
+        .account-wrapper {
+          i {
+            margin-top: .6rem;
+
+            & + i {
+              display: none;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .main {
+    .breadcrumbs {
+      display: none;
+    }
+
+    .search-wrapper {
+      .search-bar {
+        flex-flow: column nowrap;
+        height: 100px;
+
+        .search-form {
+          border: 1px solid #c4c4c4;
+
+          .select-wrapper {
+            display: none;
+          }
+
+          .btn {
+            display: none;
+          }
+        }
+
+        .channel-switcher-buttons {
+          justify-content: center;
+
+          .channel-label {
+            width: 50%;
+            font-size: 1.5rem;
+            font-weight: 400;
+          }
+        }
+      }
+
+      .filter-wrapper {
+
+        .filter-row {
+          .title {
+            padding: 0 1rem;
+          }
+
+          .save-search, .filter-sort, .filters {
+            display: none;
+          }
+
+          .filter-toggle {
+            border-top: 1px solid #c4c4c4;
+            width: 100%;
+            display: flex;
+            justify-content: flex-end;
+            padding: 0 2rem;
+
+            .btn {
+              color: #929292;
+              margin-top: 1rem;
+
+              i svg {
+                width: .8rem;
+                height: .8rem;
+                margin-left: .5rem;
+              }
+            }
+          }
+
+        }
+      }
+    }
+
+    .content-wrapper {
+      padding: 0;
+
+      .listing-wrapper {
+        width: 100%;
+
+        .listing-item {
+          border-radius: 0;
+          min-height: 8rem;
+
+          .media-col {
+            margin: 0.5rem;
+          }
+
+          .description {
+            .description-wrapper {
+              .desc-row {
+                margin-bottom: 0.5rem;
+
+                .realtor {
+                  font-size: 1rem;
+                  font-weight: 400;
+                }
+
+                .date-posted {
+                  font-size: 0.6rem;
+                  margin-left: 1rem;
+                }
+
+                .price {
+                  font-size: 1.2rem;
+                  font-weight: 600;
+                }
+
+                .ppsqft {
+                  font-size: 0.6rem;
+                  margin-left: 1rem;
+                }
+
+                .address-col {
+                  .listing-name {
+                    font-size: 1rem;
+                    font-weight: 500;
+                  }
+
+                  .listing-address {
+                    font-size: 0.8rem;
+                    color: #929292;
+                  }
+                }
+
+                .listing-features {
+                  font-size: 0.8rem;
+
+                  .listing-feature {
+                    margin: 0 0.25rem 0 0;
+
+                    & + .listing-feature::before {
+                      margin: 0 0.25rem 0 0;
+                    }
+                  }
+                }
+              }
+            }
+
+            .description-bottom-wrapper {
+              .desc-row {
+                .listing-specs {
+                  .listing-spec {
+                    i {
+                      margin-right: 0.2rem;
+
+                      svg {
+                        fill: #454545;
+                        width: 1rem;
+                        height: 1rem;
+                      }
+                    }
+
+                    & + .listing-spec {
+                      margin-left: 0.5rem;
+                    }
+                  }
+                }
+
+                .listing-buttons {
+                  .listing-details {
+                    display: none;
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+
+      .mortgage-wrapper {
+        width: 100%;
+
+        .mortgage-header {
+          height: 30px;
+          justify-content: center;
+
+          h2 {
+            display: none;
+          }
+
+          i svg {
+            height: 1.3rem;
+          }
+        }
+
+        .mortgage-calculator {
+          align-items: center;
+          min-height: 5rem;
+
+          .mortgage-result {
+            width: auto;
+            min-width: 6rem;
+
+            .mortgage-result-monthlyPayment {
+              font-size: 1rem;
+              font-weight: 600;
+
+              span {
+                font-size: 0.7rem;
+                font-weight: 400;
+              }
+            }
+
+            .mortgage-result-loan {
+              display: none;
+            }
+          }
+
+          .mortgage-form-toggle {
+            display: flex;
+            width: 100%;
+            height: auto;
+            justify-content: flex-end;
+
+            .btn {
+              color: #108ee9;
+              border: 1px solid #108ee9;
+              padding: 1rem 2rem;
+            }
+          }
+
+          .mortgage-form {
+            display: none;
+          }
+        }
+      }
+    }
+  }
+
+  .footer {
+    .container {
+      section {
+        font-size: 1rem;
+      }
+
+      #social-local-links {
+        flex-flow: column nowrap;
+        align-items: center;
+        justify-content: center;
+
+        .social-links {
+          width: 100%;
+          justify-content: center;
+        }
+
+        .local-links {
+          flex-wrap: wrap;
+          justify-content: center;
+          text-align: center;
+
+          li {
+            flex: 1 0 40%;
+            margin-top: 1rem;
+
+            & + li {
+              margin-left: 0;
+            }
+          }
+        }
+      }
+
+      #international-sites,
+      #partner-sites {
+        margin-left: 1rem;
+
+        .sites {
+          margin: 0;
+
+          li {
+            padding-right: 0.5rem;
+            margin-top: 1rem;
+
+            & + li {
+              padding-left: 0.5rem;
+            }
+          }
+        }
+      }
+
+      #app-store-links {
+        .app-store-links {
+          justify-content: center;
+        }
+      }
+
+      #copyright {
+        line-height: 2;
+        margin-left: 1rem;
+      }
+    }
+  }
+}
