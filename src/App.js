@@ -1,4 +1,5 @@
 import React, {Fragment} from 'react';
+import {BrowserRouter as Router} from "react-router-dom";
 import './App.scss';
 import Header from "./components/header/Header";
 import BreadCrumbs from "./components/breadCrumbs/BreadCrumbs";
@@ -8,16 +9,18 @@ import Mortgage from "./components/mortgage/Mortgage";
 import Footer from "./components/footer/Footer";
 function App() {
   return (
-    <Fragment>
-      <Header/>
-      <div className="main">
-        <BreadCrumbs/>
-        <SearchBox/>
-        <SearchResult/>
-        <Mortgage/>
-      </div>
-      <Footer/>
-    </Fragment>
+    <Router>
+      <Fragment>
+        <Header/>
+        <div className="main">
+          <BreadCrumbs/>
+          <SearchBox/>
+          <SearchResult/>
+          <Mortgage/>
+        </div>
+        <Footer/>
+      </Fragment>
+    </Router>
   );
 }
 
