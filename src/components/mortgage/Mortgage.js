@@ -15,15 +15,17 @@ const Mortgage = () => {
   const {pPrice, iRate, dPayment, lTerm, mortgageType, dPaymentPer} = formData;
 
   const onChange = e => setFormData({...formData, [e.target.name]: e.target.value});
-  useEffect(() =>{
+  useEffect(() => {
     let monthlyPayment;
-    if (mortgageType === "M"){
-      monthlyPayment = (((iRate/100/12)*(pPrice-dPayment))/(1-(Math.pow((1+(iRate/100/12)), (-lTerm*12))))).toFixed(0);
-    }else {
-      monthlyPayment = (((iRate/100/12)*(pPrice-((dPaymentPer*pPrice)/100)))/(1-(Math.pow((1+(iRate/100/12)), (-lTerm*12))))).toFixed(0);
+    if (mortgageType === "M") {
+      monthlyPayment = (((iRate / 100 / 12) * (pPrice - dPayment)) / (1 - (Math.pow((1 + (iRate / 100 / 12)),
+        (-lTerm * 12))))).toFixed(0);
+    } else {
+      monthlyPayment = (((iRate / 100 / 12) * (pPrice - ((dPaymentPer * pPrice) / 100))) / (1 - (Math.pow((1 + (iRate / 100 / 12)),
+        (-lTerm * 12))))).toFixed(0);
     }
     setMonthlyPayment(parseInt(monthlyPayment));
-    setLoan(pPrice-dPayment);
+    setLoan(pPrice - dPayment);
 
   }, [pPrice, iRate, dPayment, lTerm, mortgageType, dPaymentPer])
 
@@ -144,7 +146,7 @@ const Mortgage = () => {
                   <div className="mortgage-style">
                     {mortgageType === 'M' ?
                       <input className="form-control" type="text" name="dPayment" value={dPayment}
-                           onChange={e => onChange(e)}/> :
+                             onChange={e => onChange(e)}/> :
                       <input className="form-control" type="text" name="dPaymentPer" value={dPaymentPer}
                              onChange={e => onChange(e)}/>
                     }
